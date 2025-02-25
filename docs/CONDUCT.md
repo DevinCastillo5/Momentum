@@ -114,7 +114,42 @@ individual, or aggression toward or disparagement of classes of individuals.
 **Consequence**: A permanent ban from any sort of public interaction within the
 community.
 
+## Our Team Rules:
+
+*Decisions: Decisions will be made based on a majority vote, where more than 50%
+  of the team members must agree for a decision to pass.
+
+*Attendance: All members should be available for meeting times, as they will adapt to all schedules.
+ Only legitimate reasons like sickness, or other valid excuses should be used for a meeting. Missing
+ members should ask for an update on what was done in the meeting to get up to date and do their assigned
+ part. 
+
+*Assignments: Assignments will be divided fairly, and expected to be completed on time
+ There will be a deadline to get our parts done on time to review it the next day and add it all together. 
+ Members who fail to turn in on time should communicate a valid reason. If unable to turn it in,
+ the remaining members will divide the parts to be done.
+
+ *Participation: We have a group chat to communicate, each task will have a person assigned. Members need to
+ communicate their strengths to be honored within that frame. 
+
+ *Meeting Times and Locations: It'll be flexible depending on the week and what tasks are to be completed. Then
+ we will communicate our weekly availability and when we can meet.
+
+ *Agenda and Minutes /Notes: For the agenda and minutes member Alanis Irizarry will take note of it on a shared 
+ Google Doc.
+ 
+ *Promptness: Any lateness should be excused beforehand and see if possible to get it done within a 24 hour timeframe.
+ If not possible, they will be held accountable and the remaining group members will divide it and finish on their end.
+
+ *Conversational Courtesies: If a meeting is done on Zoom, then keep cameras on to encourage active listening. If in person then make 
+ sure. Everyone should listen when someone is talking.
+ *Enforcement/ Feedback: We should give direct feedback in a respectful manner, trying to keep in mind the majority rules implementation that we have. 
+
+
 ## Attribution
+
+
+
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1, available at
