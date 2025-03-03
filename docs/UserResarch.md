@@ -14,3 +14,8 @@
 - Observation: Our users prefer a combination of a structured workout plan and guided, step-by-step instructions.
 - Supporting Data: 68% of our respondents are interested in a structured fitness plan and 59% want a guided step-by-step workout. These percentages take the lead. 
 - Team Action: Develop a guided experience with instructional videos, progress tracking, and adaptive recommendations based on user performance.
+
+### Observation 4
+- Observation: Common challenges include time management, consistency, motivation, and a lack of knowledge about using gym equipment.
+- Supporting Data: 36% reported that time was an issue that stopped them from working out.
+- Team Action: Ask user how much time they would like to spend on a workout and design specific workout plans based on their response. 
