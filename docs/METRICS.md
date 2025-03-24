@@ -1,4 +1,4 @@
-Net Promoter Score:
+Net Promoter Score: <br>
 Adoption:
 Daily Active Users:
 Retention: 
