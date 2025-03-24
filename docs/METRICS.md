@@ -1,6 +1,6 @@
-Net Promoter Score: <br>
-Adoption:
-Daily Active Users:
-Retention: 
-Click Through Rate:
-Workouts Completed:
+Net Promoter Score:
+<br> Adoption:
+<br> Daily Active Users:
+<br> Retention: 
+<br> Click Through Rate:
+<br> Workouts Completed:
