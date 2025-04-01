@@ -7,9 +7,9 @@
 <br>
 <br> **Daily Active Users:** DAU via Google Analytics for Firebase. It can track DAU and give insights into our user engagement levels. By connecting the project it will show the activity of users. 
 <br>
-<br> **Retention:**
+<br> **Retention:** Tracks when an existing user loads the homepage.
 <br>
-<br> **Click Through Rate:**
+<br> **Click Through Rate:** We track the click through rate through the account creation.
 <br>
 <br> **Average Workouts Completed:**
 <br>By clicking the "Finish" workout button, with a custom function, it will send an average of workouts completed by our users via a Google Analytics Event.
