@@ -5,4 +5,4 @@ https://docs.google.com/presentation/d/1HbP8fAHakLwT1Ysj7MCL_5tDyv0bJ4UuxtbMDD85
 <br> Daily Active Users: DAU via Google Analytics for Firebase. It can track DAU and give insights into our user engagement levels. By connecting the project it will show the activity of users. 
 <br> Retention: 
 <br> Click Through Rate:
-<br> Workouts Completed:
+<br> Average Workouts Completed:
