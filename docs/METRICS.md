@@ -12,4 +12,4 @@
 <br> **Click Through Rate:**
 <br>
 <br> **Average Workouts Completed:**
-<br>
+<br>By clicking the "Finish" workout button, with a custom function, it will send an average of workouts completed by our users via a Google Analytics Event.
