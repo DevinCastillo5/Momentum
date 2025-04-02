@@ -41,7 +41,7 @@ Variant A: Standard Workout Completed Button
 Variant B: Animated Confirmation 
 <br> Diagram: https://drive.google.com/file/d/1y7Juy7lAzvqhdsYzPTDQA3WqIhfoZr_b/view?usp=sharing
 
-<br> A/B Test 3
+<br> **A/B Test 3**
 <br>
 <br> A/B Test: Personalized vs. Generic Workout Plans
 <br>
@@ -66,3 +66,23 @@ Variant B: Animated Confirmation
 Variant A: Generic Workout Plan
 Variant B: Personalized Workout Plan
 <br> Diagram: https://drive.google.com/file/d/1F2Jkl-ustz713FxX4YHUHI8xmKa0p-im/view?usp=sharing
+
+
+<br> **A/B Test 4**
+<br> 
+<br> A/B Test: Workout Screen - Current Workout Progress Bar vs Without
+<br>
+<br> User Story Number: US4(Golden Path)
+<br>
+<br> Metrics: 
+<br> Retention - Measuring the percentage of users returning to complete additional workouts in Firebase Analytics.
+<br> Average Workouts Completed - Using a custom function triggered by the workout completion button to track and analyze the average number of workouts per user.
+<br> 
+<br>Hypothesis: Adding a progress bar to the workout screen may help users feel motivated to complete their workout. We can measure this by seeing the difference of completed workouts between the two groups. I believe that the group with the workout progress bar will have more workouts completed.
+<br>
+<br> Experiment: 
+<br> A percentage of users will be put into group a or group b. Group A will have the progress bar implemented, while group b will have the same workout screen.
+<br>
+<br> Variations:  
+Variant A: Workout Progress bar on the workout screen
+Variant B: Standard workout screen without a progress bar
