@@ -40,3 +40,29 @@
 Variant A: Standard Workout Completed Button
 Variant B: Animated Confirmation 
 <br> Diagram: https://drive.google.com/file/d/1y7Juy7lAzvqhdsYzPTDQA3WqIhfoZr_b/view?usp=sharing
+
+<br> A/B Test 3
+<br>
+<br> A/B Test: Personalized vs. Generic Workout Plans
+<br>
+<br> User Story Number: US5 (User Engagement & Retention)
+<br>
+<br> Metrics:
+<br> NPS - User-reported rating of the app via a pop-up survey after completing five workouts to measure likelihood of recommendation.
+<br> CTR - Tracking user clicks on personalized workout plans compared to generic ones.
+<br> Adoption - Measuring new users creating accounts and choosing a workout plan in Firebase Analytics.
+<br> DAU - Tracking Daily Active Users via Google Analytics for Firebase to assess engagement.
+<br> Retention - Measuring the percentage of users returning to complete additional workouts in Firebase Analytics.
+<br> Average Workouts Completed - Using a custom function triggered by the workout completion button to track and analyze the average number of workouts per user.
+<br>
+<br> Hypothesis: We believe that offering personalized workout plans based on user preferences (e.g., strength, cardio, flexibility) will improve user engagement and retention. If users feel their workout experience is tailored to their goals, they will be more likely to stick with the app and complete more workouts.
+<br>
+<br> Experiment: Users will be randomly assigned to one of two groups:
+<br> Variant A: Users receive a generic, predefined workout plan.
+<br> Variant B: Users complete a short questionnaire and receive a personalized workout plan based on their responses.
+<br> The experiment will run for four weeks, and Firebase Analytics will track user behaviors, including completed workouts, time spent in the app, and return rates.
+<br>
+<br> Variations:
+Variant A: Generic Workout Plan
+Variant B: Personalized Workout Plan
+<br> Diagram: https://drive.google.com/file/d/1F2Jkl-ustz713FxX4YHUHI8xmKa0p-im/view?usp=sharing
