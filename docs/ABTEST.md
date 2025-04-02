@@ -11,12 +11,13 @@ A/B Test Alejandro:  Make a meaningful name for the test. For example  "Signup/S
 
 <br>Variations - In this section, describe what variations you would like to test. Layout the design work related and add diagrams, mockups and designs related to the confirmed variation that you’d like to test.
 
-<br> ** A/B Test 2 **
+<br> **A/B Test 2**
 <br> 
 <br> A/B Test: Workout Completion Button - Standard vs. Gamified Animation 
+<br>
 <br> User Story Number: US4(Golden Path)
+<br>
 <br> Metrics: 
-<br> 
 <br> NPS - user reported rate of app by the pop up rating after three completed
 <br> excersices to see who is likely to recommend. 
 <br> CTR - user logging in, the element at the begining of our golden path. 
@@ -26,3 +27,19 @@ A/B Test Alejandro:  Make a meaningful name for the test. For example  "Signup/S
 <br> Retention - Given in firebase analytics to see how many users are returning. 
 <br> Average Workouts Completed - By clicking finish button, with a custom function <br> it will send an average of workouts completed by users via a 
 <br> Google Analytics Event. We can examine if users are effectively using the app. 
+<br> 
+<br>Hypothesis: We believe that adding a celebratory animation, like a confetti burst or achievement pop up, when a user completes a workout will increase engagement and retention. If the user feels rewarded and supported when finishing a workout then they will be more likely to return and maintain consistency. 
+
+<br>
+<br>Experiment: For the audience we will allow 50% will see version 1, with a 
+<br> standard finish button, and the other 50% will se version 2, with the 
+<br> gamification. The audience who sees it will be the users who have completed at <br> least one workout within the first 5 days of sign up and we can run the 
+<br> experiment for a sprint of 4 weeks. We can track in firebase analytics by 
+<br> tracking the completed_workouts and completed_animation, streak (to log user <br> consistency with animation), and retention to see who is returning. 
+
+<br>
+<br> Variations:  
+Variant A: Standard Workout Completed Button
+Variant B: Animated Confirmation 
+
+<br> Diagram: https://drive.google.com/file/d/1y7Juy7lAzvqhdsYzPTDQA3WqIhfoZr_b/view?usp=sharing
