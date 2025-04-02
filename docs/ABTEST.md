@@ -1,15 +1,15 @@
-A/B Test Alejandro:  Make a meaningful name for the test. For example  "Signup/Sign In 1 screen or 2 screens", could be a title for an A/B test to determine if users prefer having account creation and login on a single screen, or two screens.
+**A/B Test 1: Slider vs. Text Boxes for Weight and Height Input**
 
-<br>User Story Number: For instance, the "Signup/Sign In 1 screen or 2 screens" A/B test would be a task under US1 (Account Creation). 
+<br>User Story Number: US5: Add User Information (Onboarding)
 
-<br>Metrics:  Your team's HEART metrics that this A/B test measures.
+<br>Metrics: Task Succession
 
-<br>Hypothesis: State your hypothesis for this A/B test
+<br>Hypothesis: If users enter their weight and height using a slider instead of text boxes, they will complete the profile creation faster and with fewer input errors, leading to a higher completion rate and improved user experience.
 
+<br>Experiment - To test my hypothesis on user preference between sliders and text boxes for input, I have set up a Remote Config A/B experiment in Firebase. The experiment targets 100% of the user base, meaning all users will be randomly assigned to either the baseline, which keeps the existing slider input method, or Variant A, which replaces it with a text box. Firebase Analytics will track key events such as engagement time on the profile setup screen, input completion rate, retention within 4 to 7 days, and any errors encountered while using either input method. Engagement and retention will be monitored through event tracking and session duration, while task success will be measured based on whether users complete their input and proceed without issues. User satisfaction could also be assessed through in-app feedback if needed. This experiment will provide insights into whether sliders or text boxes lead to better user interaction, guiding future UI design decisions.
 
-<br>Experiment - Detail out the experiment setup that you will use to test your hypothesis using Firebase capabilities. Describe the audiences – will all users be able to view the experiment? Or you will only allocate x% of your user base to the experiment? Lay out the details with the rationale behind this decision. Describe the tracking using Firebase Analytics. With your HEART metrics, what tracking needs to be set up? 
+<br>Variations - Variant A: Users input weight and height using sliders. Variant B: Users input weight and height using text boxes.
 
-<br>Variations - In this section, describe what variations you would like to test. Layout the design work related and add diagrams, mockups and designs related to the confirmed variation that you’d like to test.
 
 <br> **A/B Test 2**
 <br> 
