@@ -15,13 +15,14 @@ A/B Test Alejandro:  Make a meaningful name for the test. For example  "Signup/S
 <br> 
 <br> A/B Test: Workout Completion Button - Standard vs. Gamified Animation 
 <br> User Story Number: US4(Golden Path)
-<br> Metrics: NPS - user reported rate of app by the pop up rating after three     <br>                completed excersices to see who is likely to recommend. 
-<br>          CTR - user logging in, the element at the begining of our golden path. 
-<br>          Adoption - new users creating accounts, authentication signups in
-<br>                     firebase analytics.
-<br>          DAU - via Google Analytics for Firebase. It can track DAU and give
-<br>                insights into our user engagement levels. By connecting the 
-<br>                project it  will show the activity of users.
-<br>          Retention - Given in firebase analytics to see how many users are 
-<br>                      returning. 
-<br>          Average Workouts Completed - By clicking finish button, with a custom <br>          funtction it will send an average of workouts completed by users via a <br>          Google Analytics Event. We can examine if users are effectively using <br>          the app. 
+<br> Metrics: 
+<br> 
+<br> NPS - user reported rate of app by the pop up rating after three completed
+<br> excersices to see who is likely to recommend. 
+<br> CTR - user logging in, the element at the begining of our golden path. 
+<br> Adoption - new users creating accounts, authentication signups in firebase 
+<br> analytics.
+<br> DAU - via Google Analytics for Firebase. It can track DAU and give insights into <br> our user engagement levels. By connecting the project it  will show the activity <br> of users.
+<br> Retention - Given in firebase analytics to see how many users are returning. 
+<br> Average Workouts Completed - By clicking finish button, with a custom function <br> it will send an average of workouts completed by users via a 
+<br> Google Analytics Event. We can examine if users are effectively using the app. 
