@@ -39,5 +39,4 @@ A/B Test Alejandro:  Make a meaningful name for the test. For example  "Signup/S
 <br> Variations:  
 Variant A: Standard Workout Completed Button
 Variant B: Animated Confirmation 
-
 <br> Diagram: https://drive.google.com/file/d/1y7Juy7lAzvqhdsYzPTDQA3WqIhfoZr_b/view?usp=sharing
