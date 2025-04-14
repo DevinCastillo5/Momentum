@@ -118,10 +118,8 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                    child: StreamBuilder<List<WorkoutAPIRecord>>(
-                      stream: queryWorkoutAPIRecord(
-                        singleRecord: true,
-                      ),
+                    child: StreamBuilder<WorkoutAPIRecord>(
+                      stream: WorkoutAPIRecord.getDocument(widget.workoutRef!),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
@@ -137,21 +135,13 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                             ),
                           );
                         }
-                        List<WorkoutAPIRecord> textWorkoutAPIRecordList =
-                            snapshot.data!;
-                        // Return an empty Container when the item does not exist.
-                        if (snapshot.data!.isEmpty) {
-                          return Container();
-                        }
-                        final textWorkoutAPIRecord =
-                            textWorkoutAPIRecordList.isNotEmpty
-                                ? textWorkoutAPIRecordList.first
-                                : null;
+
+                        final textWorkoutAPIRecord = snapshot.data!;
 
                         return Text(
                           valueOrDefault<String>(
-                            (textWorkoutAPIRecord?.exerciseList
-                                    .elementAtOrNull(widget.exerciseIndex!))
+                            textWorkoutAPIRecord.exerciseList
+                                .elementAtOrNull(widget.exerciseIndex!)
                                 ?.name,
                             'exName',
                           ),
@@ -208,10 +198,9 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 0.0),
-                            child: StreamBuilder<List<WorkoutAPIRecord>>(
-                              stream: queryWorkoutAPIRecord(
-                                singleRecord: true,
-                              ),
+                            child: StreamBuilder<WorkoutAPIRecord>(
+                              stream: WorkoutAPIRecord.getDocument(
+                                  widget.workoutRef!),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
@@ -228,22 +217,13 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                                     ),
                                   );
                                 }
-                                List<WorkoutAPIRecord>
-                                    textWorkoutAPIRecordList = snapshot.data!;
-                                // Return an empty Container when the item does not exist.
-                                if (snapshot.data!.isEmpty) {
-                                  return Container();
-                                }
-                                final textWorkoutAPIRecord =
-                                    textWorkoutAPIRecordList.isNotEmpty
-                                        ? textWorkoutAPIRecordList.first
-                                        : null;
+
+                                final textWorkoutAPIRecord = snapshot.data!;
 
                                 return Text(
                                   valueOrDefault<String>(
-                                    (textWorkoutAPIRecord?.exerciseList
-                                            .elementAtOrNull(
-                                                widget.exerciseIndex!))
+                                    textWorkoutAPIRecord.exerciseList
+                                        .elementAtOrNull(widget.exerciseIndex!)
                                         ?.instructions,
                                     'instructions',
                                   ),
@@ -286,10 +266,9 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                StreamBuilder<List<WorkoutAPIRecord>>(
-                                  stream: queryWorkoutAPIRecord(
-                                    singleRecord: true,
-                                  ),
+                                StreamBuilder<WorkoutAPIRecord>(
+                                  stream: WorkoutAPIRecord.getDocument(
+                                      widget.workoutRef!),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
@@ -307,20 +286,11 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                                         ),
                                       );
                                     }
-                                    List<WorkoutAPIRecord>
-                                        textWorkoutAPIRecordList =
-                                        snapshot.data!;
-                                    // Return an empty Container when the item does not exist.
-                                    if (snapshot.data!.isEmpty) {
-                                      return Container();
-                                    }
-                                    final textWorkoutAPIRecord =
-                                        textWorkoutAPIRecordList.isNotEmpty
-                                            ? textWorkoutAPIRecordList.first
-                                            : null;
+
+                                    final textWorkoutAPIRecord = snapshot.data!;
 
                                     return Text(
-                                      'Sets: ${(textWorkoutAPIRecord?.exerciseList.elementAtOrNull(widget.exerciseIndex!))?.sets}',
+                                      'Sets: ${textWorkoutAPIRecord.exerciseList.elementAtOrNull(widget.exerciseIndex!)?.sets}',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(

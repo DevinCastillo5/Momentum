@@ -49,10 +49,8 @@ class _ExerciseDescriptionPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<WorkoutAPIRecord>>(
-      stream: queryWorkoutAPIRecord(
-        singleRecord: true,
-      ),
+    return StreamBuilder<WorkoutAPIRecord>(
+      stream: WorkoutAPIRecord.getDocument(widget.workoutRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -71,16 +69,8 @@ class _ExerciseDescriptionPageWidgetState
             ),
           );
         }
-        List<WorkoutAPIRecord> exerciseDescriptionPageWorkoutAPIRecordList =
-            snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final exerciseDescriptionPageWorkoutAPIRecord =
-            exerciseDescriptionPageWorkoutAPIRecordList.isNotEmpty
-                ? exerciseDescriptionPageWorkoutAPIRecordList.first
-                : null;
+
+        final exerciseDescriptionPageWorkoutAPIRecord = snapshot.data!;
 
         return GestureDetector(
           onTap: () {
@@ -131,8 +121,7 @@ class _ExerciseDescriptionPageWidgetState
                         updateCallback: () => safeSetState(() {}),
                         child: ExerciseDescriptionWidget(
                           exerciseIndex: widget.exerciseIndex!,
-                          workoutRef:
-                              exerciseDescriptionWorkoutAPIRecord!.reference,
+                          workoutRef: widget.workoutRef!,
                         ),
                       );
                     },

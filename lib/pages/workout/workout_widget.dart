@@ -94,10 +94,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<WorkoutAPIRecord>>(
-      stream: queryWorkoutAPIRecord(
-        singleRecord: true,
-      ),
+    return StreamBuilder<WorkoutAPIRecord>(
+      stream: WorkoutAPIRecord.getDocument(widget.workoutRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -116,14 +114,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
             ),
           );
         }
-        List<WorkoutAPIRecord> workoutWorkoutAPIRecordList = snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final workoutWorkoutAPIRecord = workoutWorkoutAPIRecordList.isNotEmpty
-            ? workoutWorkoutAPIRecordList.first
-            : null;
+
+        final workoutWorkoutAPIRecord = snapshot.data!;
 
         return GestureDetector(
           onTap: () {
@@ -253,9 +245,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                                   builder: (context) {
                                                     final exerciseList =
                                                         workoutWorkoutAPIRecord
-                                                                ?.exerciseList
-                                                                .toList() ??
-                                                            [];
+                                                            .exerciseList
+                                                            .toList();
 
                                                     return ListView.builder(
                                                       padding: EdgeInsets.zero,

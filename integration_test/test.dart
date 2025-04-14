@@ -32,7 +32,7 @@ void main() async {
     await tester.pumpWidget(const MyApp());
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle();
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('Signup-Email_de01')), 'momentum@gmail.com');
     await tester.enterText(
@@ -42,7 +42,7 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('Button_q481')));
     await tester.pump(kDoubleTapMinTime);
     await tester.tap(find.byKey(const ValueKey('Button_q481')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     expect(find.byKey(const ValueKey('Text_q8q8')), findsWidgets);
   });
 
@@ -60,6 +60,21 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('button_qjy1')));
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
     expect(find.text('Welcome'), findsWidgets);
+  });
+
+  testWidgets('Succesful Login Test', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(const MyApp());
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle();
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Email_e1q0')), 'email@email.com');
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Password_ddjr')), 'password');
+    await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
+    await tester.pumpAndSettle();
   });
 }
 

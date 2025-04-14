@@ -995,6 +995,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 double.infinity,
                                                             child:
                                                                 TextFormField(
+                                                              key: ValueKey(
+                                                                  'Login-Email_e1q0'),
                                                               controller: _model
                                                                   .loginEmailTextController,
                                                               focusNode: _model
@@ -1164,6 +1166,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                 double.infinity,
                                                             child:
                                                                 TextFormField(
+                                                              key: ValueKey(
+                                                                  'Login-Password_ddjr'),
                                                               controller: _model
                                                                   .loginPasswordTextController,
                                                               focusNode: _model
@@ -1321,6 +1325,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                   0.0,
                                                                   16.0),
                                                       child: FFButtonWidget(
+                                                        key: ValueKey(
+                                                            'Button_gaeo'),
                                                         onPressed: () async {
                                                           logFirebaseEvent(
                                                               'AUTHENTICATION_PAGE_SIGN_IN_BTN_ON_TAP');
