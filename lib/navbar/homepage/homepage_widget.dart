@@ -10,7 +10,6 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'homepage_model.dart';
 export 'homepage_model.dart';
 
@@ -507,32 +506,6 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                               ),
                                                                             ),
                                                                           ],
-                                                                        ),
-                                                                        ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(50.0),
-                                                                          child:
-                                                                              Container(
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 1.0,
-                                                                            height:
-                                                                                10.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              borderRadius: BorderRadius.circular(50.0),
-                                                                            ),
-                                                                            child:
-                                                                                LinearPercentIndicator(
-                                                                              percent: 0.25,
-                                                                              width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                              lineHeight: 24.0,
-                                                                              animation: true,
-                                                                              animateFromLastPercent: true,
-                                                                              progressColor: FlutterFlowTheme.of(context).primary,
-                                                                              padding: EdgeInsets.zero,
-                                                                            ),
-                                                                          ),
                                                                         ),
                                                                       ],
                                                                     ),

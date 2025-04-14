@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,7 +8,14 @@ import 'exercise_description_model.dart';
 export 'exercise_description_model.dart';
 
 class ExerciseDescriptionWidget extends StatefulWidget {
-  const ExerciseDescriptionWidget({super.key});
+  const ExerciseDescriptionWidget({
+    super.key,
+    required this.exerciseIndex,
+    required this.workoutRef,
+  });
+
+  final int? exerciseIndex;
+  final DocumentReference? workoutRef;
 
   @override
   State<ExerciseDescriptionWidget> createState() =>
@@ -87,8 +95,11 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                       color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'EXERCISE_DESCRIPTION_close_rounded_ICN_O');
+                      logFirebaseEvent('IconButton_navigate_back');
+                      context.safePop();
                     },
                   ),
                 ],
@@ -102,41 +113,161 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'High Intensity Interval Training',
-                    style: FlutterFlowTheme.of(context).titleLarge.override(
-                          fontFamily: 'Inter Tight',
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                    child: StreamBuilder<List<WorkoutAPIRecord>>(
+                      stream: queryWorkoutAPIRecord(
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<WorkoutAPIRecord> textWorkoutAPIRecordList =
+                            snapshot.data!;
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final textWorkoutAPIRecord =
+                            textWorkoutAPIRecordList.isNotEmpty
+                                ? textWorkoutAPIRecordList.first
+                                : null;
+
+                        return Text(
+                          valueOrDefault<String>(
+                            (textWorkoutAPIRecord?.exerciseList
+                                    .elementAtOrNull(widget.exerciseIndex!))
+                                ?.name,
+                            'exName',
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Inter Tight',
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        );
+                      },
+                    ),
                   ),
-                  Text(
-                    'A full-body workout that alternates between intense bursts of exercise and short recovery periods. This workout is designed to boost your metabolism and burn fat efficiently.',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          letterSpacing: 0.0,
-                        ),
+                  Container(
+                    width: 300.0,
+                    height: 450.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondary,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: Color(0x33000000),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
+                          spreadRadius: 5.0,
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(24.0),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).primaryText,
+                      ),
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 15.0, 0.0, 0.0),
+                            child: Text(
+                              'Instructions:',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Inter Tight',
+                                    color: Colors.black,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 20.0, 20.0, 0.0),
+                            child: StreamBuilder<List<WorkoutAPIRecord>>(
+                              stream: queryWorkoutAPIRecord(
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<WorkoutAPIRecord>
+                                    textWorkoutAPIRecordList = snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final textWorkoutAPIRecord =
+                                    textWorkoutAPIRecordList.isNotEmpty
+                                        ? textWorkoutAPIRecordList.first
+                                        : null;
+
+                                return Text(
+                                  valueOrDefault<String>(
+                                    (textWorkoutAPIRecord?.exerciseList
+                                            .elementAtOrNull(
+                                                widget.exerciseIndex!))
+                                        ?.instructions,
+                                    'instructions',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: Color(0x8A000000),
+                                        letterSpacing: 0.0,
+                                      ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ].divide(SizedBox(height: 12.0)),
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                    child: Text(
-                      'Workout Details',
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'Work Sans',
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
@@ -153,76 +284,51 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                           children: [
                             Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  'Duration:',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                Text(
-                                  '30 minutes',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Difficulty:',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                Text(
-                                  'Intermediate',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Calories:',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                Text(
-                                  '~350 calories',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
+                                StreamBuilder<List<WorkoutAPIRecord>>(
+                                  stream: queryWorkoutAPIRecord(
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<WorkoutAPIRecord>
+                                        textWorkoutAPIRecordList =
+                                        snapshot.data!;
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final textWorkoutAPIRecord =
+                                        textWorkoutAPIRecordList.isNotEmpty
+                                            ? textWorkoutAPIRecordList.first
+                                            : null;
+
+                                    return Text(
+                                      'Sets: ${(textWorkoutAPIRecord?.exerciseList.elementAtOrNull(widget.exerciseIndex!))?.sets}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Inter Tight',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    );
+                                  },
                                 ),
                               ],
                             ),
@@ -233,30 +339,11 @@ class _ExerciseDescriptionWidgetState extends State<ExerciseDescriptionWidget> {
                   ),
                 ].divide(SizedBox(height: 12.0)),
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Instructions',
-                    style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Work Sans',
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                  Text(
-                    '1. Warm up for 5 minutes with light cardio\n2. Perform each exercise at maximum effort for 40 seconds\n3. Rest for 20 seconds between exercises\n4. Complete 4 rounds of the circuit\n5. Cool down with 5 minutes of stretching',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          letterSpacing: 0.0,
-                        ),
-                  ),
-                ].divide(SizedBox(height: 12.0)),
-              ),
               FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  logFirebaseEvent('EXERCISE_DESCRIPTION_FINISH_WORKOUT_BTN_');
+                  logFirebaseEvent('Button_navigate_back');
+                  context.safePop();
                 },
                 text: 'Finish  Workout',
                 options: FFButtonOptions(

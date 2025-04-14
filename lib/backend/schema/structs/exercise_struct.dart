@@ -10,13 +10,15 @@ class ExerciseStruct extends FFFirebaseStruct {
   ExerciseStruct({
     String? name,
     String? sets,
-    String? intructions,
+    String? instructions,
     int? order,
+    bool? done,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _name = name,
         _sets = sets,
-        _intructions = intructions,
+        _instructions = instructions,
         _order = order,
+        _done = done,
         super(firestoreUtilData);
 
   // "name" field.
@@ -33,12 +35,12 @@ class ExerciseStruct extends FFFirebaseStruct {
 
   bool hasSets() => _sets != null;
 
-  // "intructions" field.
-  String? _intructions;
-  String get intructions => _intructions ?? '';
-  set intructions(String? val) => _intructions = val;
+  // "instructions" field.
+  String? _instructions;
+  String get instructions => _instructions ?? '';
+  set instructions(String? val) => _instructions = val;
 
-  bool hasIntructions() => _intructions != null;
+  bool hasInstructions() => _instructions != null;
 
   // "order" field.
   int? _order;
@@ -49,11 +51,19 @@ class ExerciseStruct extends FFFirebaseStruct {
 
   bool hasOrder() => _order != null;
 
+  // "done" field.
+  bool? _done;
+  bool get done => _done ?? false;
+  set done(bool? val) => _done = val;
+
+  bool hasDone() => _done != null;
+
   static ExerciseStruct fromMap(Map<String, dynamic> data) => ExerciseStruct(
         name: data['name'] as String?,
         sets: data['sets'] as String?,
-        intructions: data['intructions'] as String?,
+        instructions: data['instructions'] as String?,
         order: castToType<int>(data['order']),
+        done: data['done'] as bool?,
       );
 
   static ExerciseStruct? maybeFromMap(dynamic data) =>
@@ -62,8 +72,9 @@ class ExerciseStruct extends FFFirebaseStruct {
   Map<String, dynamic> toMap() => {
         'name': _name,
         'sets': _sets,
-        'intructions': _intructions,
+        'instructions': _instructions,
         'order': _order,
+        'done': _done,
       }.withoutNulls;
 
   @override
@@ -76,13 +87,17 @@ class ExerciseStruct extends FFFirebaseStruct {
           _sets,
           ParamType.String,
         ),
-        'intructions': serializeParam(
-          _intructions,
+        'instructions': serializeParam(
+          _instructions,
           ParamType.String,
         ),
         'order': serializeParam(
           _order,
           ParamType.int,
+        ),
+        'done': serializeParam(
+          _done,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -98,14 +113,19 @@ class ExerciseStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        intructions: deserializeParam(
-          data['intructions'],
+        instructions: deserializeParam(
+          data['instructions'],
           ParamType.String,
           false,
         ),
         order: deserializeParam(
           data['order'],
           ParamType.int,
+          false,
+        ),
+        done: deserializeParam(
+          data['done'],
+          ParamType.bool,
           false,
         ),
       );
@@ -118,20 +138,22 @@ class ExerciseStruct extends FFFirebaseStruct {
     return other is ExerciseStruct &&
         name == other.name &&
         sets == other.sets &&
-        intructions == other.intructions &&
-        order == other.order;
+        instructions == other.instructions &&
+        order == other.order &&
+        done == other.done;
   }
 
   @override
   int get hashCode =>
-      const ListEquality().hash([name, sets, intructions, order]);
+      const ListEquality().hash([name, sets, instructions, order, done]);
 }
 
 ExerciseStruct createExerciseStruct({
   String? name,
   String? sets,
-  String? intructions,
+  String? instructions,
   int? order,
+  bool? done,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -140,8 +162,9 @@ ExerciseStruct createExerciseStruct({
     ExerciseStruct(
       name: name,
       sets: sets,
-      intructions: intructions,
+      instructions: instructions,
       order: order,
+      done: done,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

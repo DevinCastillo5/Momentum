@@ -150,7 +150,7 @@ class _DifficultyWidgetState extends State<DifficultyWidget>
                                               .displayLarge
                                               .override(
                                                 fontFamily: 'Josefin Sans',
-                                                fontSize: 45.0,
+                                                fontSize: 40.0,
                                                 letterSpacing: 0.0,
                                                 lineHeight: 1.5,
                                               ),

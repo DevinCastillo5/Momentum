@@ -117,7 +117,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: ExerciseDescriptionPageWidget.routeName,
           path: ExerciseDescriptionPageWidget.routePath,
-          builder: (context, params) => ExerciseDescriptionPageWidget(),
+          builder: (context, params) => ExerciseDescriptionPageWidget(
+            exerciseIndex: params.getParam(
+              'exerciseIndex',
+              ParamType.int,
+            ),
+            workoutRef: params.getParam(
+              'workoutRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['workoutAPI'],
+            ),
+          ),
         ),
         FFRoute(
           name: AuthenticationWidget.routeName,

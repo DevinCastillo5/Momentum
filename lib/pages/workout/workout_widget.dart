@@ -154,38 +154,38 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.center,
                                       children: [
                                         Align(
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  widget.selectedWorkoutType,
-                                                  'Workout Type',
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    widget.selectedWorkoutType,
+                                                    'Workout Type',
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .displayLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Josefin Sans',
+                                                        fontSize: 45.0,
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.5,
+                                                      ),
                                                 ),
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displayLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Josefin Sans',
-                                                          fontSize: 45.0,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.5,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        100.0, 0.0, 0.0, 0.0),
-                                                child: Text(
+                                                Text(
                                                   valueOrDefault<String>(
                                                     widget
                                                         .selectedWorkoutDifficulty,
@@ -202,8 +202,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                                         lineHeight: 1.5,
                                                       ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -294,8 +294,25 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                                                   'Container_navigate_to');
 
                                                               context.pushNamed(
-                                                                  ExerciseDescriptionPageWidget
-                                                                      .routeName);
+                                                                ExerciseDescriptionPageWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'exerciseIndex':
+                                                                      serializeParam(
+                                                                    exerciseListIndex,
+                                                                    ParamType
+                                                                        .int,
+                                                                  ),
+                                                                  'workoutRef':
+                                                                      serializeParam(
+                                                                    widget
+                                                                        .workoutRef,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
                                                             },
                                                             child: Container(
                                                               width: 100.0,
@@ -349,6 +366,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                                                             .name,
                                                                         'exName',
                                                                       ),
+                                                                      maxLines:
+                                                                          4,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .headlineSmall
