@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -78,14 +80,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? entryPage ?? HomepageWidget()
-          : LoginupdatedWidget(),
+          : AuthenticationWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? entryPage ?? HomepageWidget()
-              : LoginupdatedWidget(),
+              : AuthenticationWidget(),
         ),
         FFRoute(
           name: HomepageWidget.routeName,
@@ -103,29 +105,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
-          name: MuscleBuildingWidget.routeName,
-          path: MuscleBuildingWidget.routePath,
-          builder: (context, params) => MuscleBuildingWidget(),
-        ),
-        FFRoute(
-          name: WeightLossWidget.routeName,
-          path: WeightLossWidget.routePath,
-          builder: (context, params) => WeightLossWidget(),
-        ),
-        FFRoute(
-          name: MobilityWidget.routeName,
-          path: MobilityWidget.routePath,
-          builder: (context, params) => MobilityWidget(),
-        ),
-        FFRoute(
           name: SocialWidget.routeName,
           path: SocialWidget.routePath,
           builder: (context, params) => SocialWidget(),
-        ),
-        FFRoute(
-          name: WorkoutWidget.routeName,
-          path: WorkoutWidget.routePath,
-          builder: (context, params) => WorkoutWidget(),
         ),
         FFRoute(
           name: MyStatsWidget.routeName,
@@ -133,14 +115,50 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => MyStatsWidget(),
         ),
         FFRoute(
-          name: LoginupdatedWidget.routeName,
-          path: LoginupdatedWidget.routePath,
-          builder: (context, params) => LoginupdatedWidget(),
+          name: ExerciseDescriptionPageWidget.routeName,
+          path: ExerciseDescriptionPageWidget.routePath,
+          builder: (context, params) => ExerciseDescriptionPageWidget(),
         ),
         FFRoute(
-          name: WorkoutDetailsWidget.routeName,
-          path: WorkoutDetailsWidget.routePath,
-          builder: (context, params) => WorkoutDetailsWidget(),
+          name: AuthenticationWidget.routeName,
+          path: AuthenticationWidget.routePath,
+          builder: (context, params) => AuthenticationWidget(),
+        ),
+        FFRoute(
+          name: DifficultyWidget.routeName,
+          path: DifficultyWidget.routePath,
+          builder: (context, params) => DifficultyWidget(
+            selectedWorkoutType: params.getParam(
+              'selectedWorkoutType',
+              ParamType.String,
+            ),
+            workoutRef: params.getParam(
+              'workoutRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['workoutAPI'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: WorkoutWidget.routeName,
+          path: WorkoutWidget.routePath,
+          builder: (context, params) => WorkoutWidget(
+            selectedWorkoutType: params.getParam(
+              'selectedWorkoutType',
+              ParamType.String,
+            ),
+            selectedWorkoutDifficulty: params.getParam(
+              'selectedWorkoutDifficulty',
+              ParamType.String,
+            ),
+            workoutRef: params.getParam(
+              'workoutRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['workoutAPI'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -260,6 +278,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -278,6 +297,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }
@@ -311,7 +331,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/loginupdate';
+            return '/authentication';
           }
           return null;
         },

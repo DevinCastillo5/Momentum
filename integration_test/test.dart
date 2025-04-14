@@ -43,6 +43,22 @@ void main() async {
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
     expect(find.text('Create Profile'), findsWidgets);
   });
+
+  testWidgets('Test Case US5 Profile Creation', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(const MyApp());
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    await tester.enterText(
+        find.byKey(const ValueKey('TextField_6z0p')), 'autoTestUser');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.tap(find.byKey(const ValueKey('bdaybutton_gvs2')));
+    await tester.tap(find.byKey(const ValueKey('button_qjy1')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    expect(find.text('Welcome'), findsWidgets);
+  });
 }
 
 // There are certain types of errors that can happen during tests but

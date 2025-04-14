@@ -75,6 +75,11 @@ class UsersRecord extends FirestoreRecord {
   double get userRating => _userRating ?? 0.0;
   bool hasUserRating() => _userRating != null;
 
+  // "hasSeenNPS" field.
+  bool? _hasSeenNPS;
+  bool get hasSeenNPS => _hasSeenNPS ?? false;
+  bool hasHasSeenNPS() => _hasSeenNPS != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -88,6 +93,7 @@ class UsersRecord extends FirestoreRecord {
     _workoutStreaks = castToType<int>(snapshotData['workout_streaks']);
     _totalWorkouts = castToType<int>(snapshotData['totalWorkouts']);
     _userRating = castToType<double>(snapshotData['userRating']);
+    _hasSeenNPS = snapshotData['hasSeenNPS'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -136,6 +142,7 @@ Map<String, dynamic> createUsersRecordData({
   int? workoutStreaks,
   int? totalWorkouts,
   double? userRating,
+  bool? hasSeenNPS,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -151,6 +158,7 @@ Map<String, dynamic> createUsersRecordData({
       'workout_streaks': workoutStreaks,
       'totalWorkouts': totalWorkouts,
       'userRating': userRating,
+      'hasSeenNPS': hasSeenNPS,
     }.withoutNulls,
   );
 
@@ -173,7 +181,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.weight == e2?.weight &&
         e1?.workoutStreaks == e2?.workoutStreaks &&
         e1?.totalWorkouts == e2?.totalWorkouts &&
-        e1?.userRating == e2?.userRating;
+        e1?.userRating == e2?.userRating &&
+        e1?.hasSeenNPS == e2?.hasSeenNPS;
   }
 
   @override
@@ -189,7 +198,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.weight,
         e?.workoutStreaks,
         e?.totalWorkouts,
-        e?.userRating
+        e?.userRating,
+        e?.hasSeenNPS
       ]);
 
   @override

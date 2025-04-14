@@ -1,14 +1,13 @@
 // Export pages
-export '/pages/homepage/homepage_widget.dart' show HomepageWidget;
-export '/pages/create_profile/create_profile_widget.dart'
+export '/navbar/homepage/homepage_widget.dart' show HomepageWidget;
+export '/onboarding/create_profile/create_profile_widget.dart'
     show CreateProfileWidget;
-export '/pages/profile/profile_widget.dart' show ProfileWidget;
-export '/pages/muscle_building/muscle_building_widget.dart'
-    show MuscleBuildingWidget;
-export '/pages/weight_loss/weight_loss_widget.dart' show WeightLossWidget;
-export '/pages/mobility/mobility_widget.dart' show MobilityWidget;
-export '/pages/social/social_widget.dart' show SocialWidget;
-export '/pages/workout/workout_widget.dart' show WorkoutWidget;
+export '/navbar/profile/profile_widget.dart' show ProfileWidget;
+export '/navbar/social/social_widget.dart' show SocialWidget;
 export '/pages/my_stats/my_stats_widget.dart' show MyStatsWidget;
-export '/pages/loginupdated/loginupdated_widget.dart' show LoginupdatedWidget;
-export '/workout_details/workout_details_widget.dart' show WorkoutDetailsWidget;
+export '/pages/exercise_description_page/exercise_description_page_widget.dart'
+    show ExerciseDescriptionPageWidget;
+export '/onboarding/authentication/authentication_widget.dart'
+    show AuthenticationWidget;
+export '/pages/difficulty/difficulty_widget.dart' show DifficultyWidget;
+export '/pages/workout/workout_widget.dart' show WorkoutWidget;

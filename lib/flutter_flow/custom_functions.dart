@@ -10,6 +10,7 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 int? calculateAge(DateTime birthDate) {
@@ -41,4 +42,38 @@ int? calculateAverageWorkout() {
 
   int totalWorkouts = completedWorkouts.reduce((a, b) => a + b);
   return (totalWorkouts / completedWorkouts.length).round();
+}
+
+String? formatWorkoutDuration(
+  DateTime? startTime,
+  DateTime? endTime,
+) {
+  if (startTime == null || endTime == null) {
+    return null;
+  }
+
+  final duration = endTime.difference(startTime);
+  final hours = duration.inHours;
+  final minutes = duration.inMinutes.remainder(60);
+
+  if (hours > 0) {
+    return '${hours}h ${minutes}m';
+  } else {
+    return '${minutes}m';
+  }
+}
+
+String? joinList(List<String>? list) {
+  // make a function that takes a list and takes all elements and puts them in one string in the same order of the list
+  if (list == null || list.isEmpty) {
+    return null;
+  }
+  return list.join(', ');
+}
+
+List<int>? generatePics() {
+  // change this function so it generates and returns a list of numbers 1-3 in random order
+  List<int> numbers = [1, 2, 3];
+  numbers.shuffle(); // Shuffle the list to randomize the order
+  return numbers; // Return the randomized list
 }

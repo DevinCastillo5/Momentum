@@ -1,4 +1,4 @@
-import '/components/navigating_widget.dart';
+import '/components/navigating/navigating_widget.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'my_stats_widget.dart' show MyStatsWidget;

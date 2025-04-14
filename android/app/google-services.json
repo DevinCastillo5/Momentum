@@ -40,6 +40,42 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304484131141:android:7b5784e2ee010dd6afde2c",
+        "android_client_info": {
+          "package_name": "com.uricsc305.momentum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304484131141-i1lengg8349sb857vd5bfeud38n45h13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxo1BEbTMmV9ki75UD2SiXdh7JqJCXuCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304484131141-i1lengg8349sb857vd5bfeud38n45h13.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "304484131141-m0aoammu602m8u2kecer1otng2qn1uuv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.momentum"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
