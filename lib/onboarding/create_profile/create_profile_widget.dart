@@ -72,6 +72,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(15.0, 35.0, 0.0, 35.0),
                 child: Text(
+                  key: ValueKey('Text_q8q8'),
                   'Create Profile',
                   style: FlutterFlowTheme.of(context).displayLarge.override(
                         fontFamily: 'Josefin Sans',

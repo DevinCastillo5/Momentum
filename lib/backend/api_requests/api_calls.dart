@@ -10,7 +10,9 @@ export 'api_manager.dart' show ApiCallResponse;
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class ExcersiceCall {
-  static Future<ApiCallResponse> call() async {
+  static Future<ApiCallResponse> call({
+    String? type = 'stretching',
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'excersice',
       apiUrl: 'https://api.api-ninjas.com/v1/exercises',
@@ -18,7 +20,9 @@ class ExcersiceCall {
       headers: {
         'X-Api-Key': 'vPlSUqEB/h3XiwAkvPLiig==uWGUWQgeEfoYNwLN',
       },
-      params: {},
+      params: {
+        'type': type,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

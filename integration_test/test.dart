@@ -40,8 +40,10 @@ void main() async {
     await tester.enterText(
         find.byKey(const ValueKey('Signup-ConfirmPassword_wswg')), 'momentum');
     await tester.tap(find.byKey(const ValueKey('Button_q481')));
+    await tester.pump(kDoubleTapMinTime);
+    await tester.tap(find.byKey(const ValueKey('Button_q481')));
     await tester.pumpAndSettle(const Duration(milliseconds: 3000));
-    expect(find.text('Create Profile'), findsWidgets);
+    expect(find.byKey(const ValueKey('Text_q8q8')), findsWidgets);
   });
 
   testWidgets('Test Case US5 Profile Creation', (WidgetTester tester) async {
