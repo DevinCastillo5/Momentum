@@ -50,7 +50,7 @@ void main() async {
     _overrideOnError();
 
     await tester.pumpWidget(MyApp(
-      entryPage: AuthenticationWidget(),
+      entryPage: CreateProfileWidget(),
     ));
     await GoogleFonts.pendingFonts();
 
