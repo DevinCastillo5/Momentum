@@ -196,7 +196,6 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                             children: [
                                               AuthUserStreamWidget(
                                                 builder: (context) => Text(
-                                                  key: ValueKey('Text_2nn9'),
                                                   'Welcome, ${currentUserDisplayName}!',
                                                   style: FlutterFlowTheme.of(
                                                           context)

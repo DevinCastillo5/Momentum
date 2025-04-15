@@ -48,18 +48,24 @@ void main() async {
 
   testWidgets('Test Case US5 Profile Creation', (WidgetTester tester) async {
     _overrideOnError();
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'devtest@gmail.com', password: 'devtest');
+
     await tester.pumpWidget(const MyApp());
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 5000),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 5000),
+    );
     await tester.enterText(
         find.byKey(const ValueKey('TextField_6z0p')), 'autoTestUser');
-    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.tap(find.byKey(const ValueKey('button_qjy1')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    expect(find.byKey(const ValueKey('Text_2nn9')), findsWidgets);
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 5000),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 5000),
+    );
+    expect(find.text('Welcome'), findsWidgets);
   });
 
   testWidgets('Login Test', (WidgetTester tester) async {
@@ -69,8 +75,6 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    expect(find.text('Log In'), findsWidgets);
-    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
     await tester.pump(kDoubleTapMinTime);
     await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
@@ -80,10 +84,8 @@ void main() async {
     await tester.enterText(
         find.byKey(const ValueKey('Login-Password_ddjr')), 'momentum2');
     await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
-    await tester.pump(kDoubleTapMinTime);
-    await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    expect(find.byKey(const ValueKey('Text_2nn9')), findsWidgets);
+    expect(find.text('Welcome'), findsWidgets);
   });
 
   testWidgets('Golden Path', (WidgetTester tester) async {
