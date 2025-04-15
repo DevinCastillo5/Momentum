@@ -256,6 +256,7 @@ class _WorkoutPreviewWidgetState extends State<WorkoutPreviewWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 child: FFButtonWidget(
+                  key: ValueKey('Button_7lj5'),
                   onPressed: () async {
                     logFirebaseEvent(
                         'WORKOUT_PREVIEW_BEGIN_WORKOUT_BTN_ON_TAP');

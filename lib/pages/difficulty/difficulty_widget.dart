@@ -689,6 +689,7 @@ class _DifficultyWidgetState extends State<DifficultyWidget>
                         model: _model.workoutPreviewModel,
                         updateCallback: () => safeSetState(() {}),
                         child: WorkoutPreviewWidget(
+                          key: ValueKey('WorkoutPreview_9yyx'),
                           selectedWorkoutType: widget.selectedWorkoutType!,
                           selectedWorkoutDifficulty: _model.selectedDifficulty!,
                           startTime: getCurrentTimestamp,

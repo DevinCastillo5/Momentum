@@ -215,6 +215,7 @@ class _WorkoutCompleteWidgetState extends State<WorkoutCompleteWidget> {
                   ),
                 ),
                 FFButtonWidget(
+                  key: ValueKey('Button_eq65'),
                   onPressed: () async {
                     logFirebaseEvent(
                         'WORKOUT_COMPLETE_RETURN_TO_DASHBOARD_BTN');

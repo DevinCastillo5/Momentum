@@ -546,7 +546,9 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                           child: wrapWithModel(
                             model: _model.workoutCompleteModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: WorkoutCompleteWidget(),
+                            child: WorkoutCompleteWidget(
+                              key: ValueKey('WorkoutComplete_ut73'),
+                            ),
                           ),
                         ),
                     ],

@@ -66,9 +66,7 @@ void main() async {
   testWidgets('Login Test', (WidgetTester tester) async {
     _overrideOnError();
 
-    await tester.pumpWidget(MyApp(
-      entryPage: AuthenticationWidget(),
-    ));
+    await tester.pumpWidget(const MyApp());
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
@@ -107,7 +105,28 @@ void main() async {
       EnginePhase.sendSemanticsUpdate,
       const Duration(milliseconds: 10000),
     );
+    await tester.tap(find.descendant(
+      of: find.byKey(const ValueKey('WorkoutPreview_9yyx')),
+      matching: find.byKey(const ValueKey('Button_7lj5')),
+    ));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 5000),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 10000),
+    );
     await tester.tap(find.byKey(const ValueKey('Button_c2tj')));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 5000),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 10000),
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('WorkoutComplete_ut73')),
+        matching: find.byKey(const ValueKey('Button_eq65')),
+      ),
+      findsOneWidget,
+    );
   });
 }
 
