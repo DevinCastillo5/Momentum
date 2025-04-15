@@ -349,6 +349,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                         );
                                                       },
                                                       child: Container(
+                                                        key: ValueKey(
+                                                            'Container_1h6h'),
                                                         width:
                                                             MediaQuery.sizeOf(
                                                                         context)

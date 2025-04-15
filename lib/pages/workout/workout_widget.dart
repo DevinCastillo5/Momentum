@@ -421,6 +421,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 35.0, 0.0, 0.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey('Button_c2tj'),
                                               onPressed: () async {
                                                 logFirebaseEvent(
                                                     'WORKOUT_PAGE_FINISH_BTN_ON_TAP');

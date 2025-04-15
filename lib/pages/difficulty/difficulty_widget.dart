@@ -169,6 +169,7 @@ class _DifficultyWidgetState extends State<DifficultyWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 20.0, 20.0, 0.0),
                               child: Container(
+                                key: ValueKey('Container_cut4'),
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
