@@ -205,7 +205,6 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                   Align(
                                     alignment: Alignment(0.0, 0),
                                     child: TabBar(
-                                      key: ValueKey('TabBar_txww'),
                                       isScrollable: true,
                                       labelColor:
                                           FlutterFlowTheme.of(context).primary,
@@ -236,6 +235,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                           text: 'Create Account',
                                         ),
                                         Tab(
+                                          key: ValueKey('LoginTab_rr7p'),
                                           text: 'Log In',
                                         ),
                                       ],
