@@ -346,7 +346,6 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                 ),
               ),
               FFButtonWidget(
-                key: ValueKey('bdaybutton_gvs2'),
                 onPressed: () async {
                   logFirebaseEvent('CREATE_PROFILE_PAGE_bdaybutton_ON_TAP');
                   logFirebaseEvent('bdaybutton_date_time_picker');
@@ -685,8 +684,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   ((_model.weightsliderValue != null) ||
                       (_model.weightTextTextController.text != '')) &&
                   ((_model.heightsliderValue != null) ||
-                      (_model.heightTextTextController.text != '')) &&
-                  (_model.datePicked != null))
+                      (_model.heightTextTextController.text != '')))
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: FFButtonWidget(

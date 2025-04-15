@@ -56,7 +56,6 @@ void main() async {
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('TextField_6z0p')), 'autoTestUser');
-    await tester.tap(find.byKey(const ValueKey('bdaybutton_gvs2')));
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.tap(find.byKey(const ValueKey('button_qjy1')));
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
@@ -70,9 +69,9 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
+    await tester.tap(find.byKey(const ValueKey('TabBar_txww')));
     await tester.pump(kDoubleTapMinTime);
-    await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
+    await tester.tap(find.byKey(const ValueKey('TabBar_txww')));
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('Login-Email_e1q0')), 'momentum2@email.com');
