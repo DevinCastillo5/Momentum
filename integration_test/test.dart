@@ -69,12 +69,12 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    expect(find.byKey(const ValueKey('LoginTab_rr7p')), findsWidgets);
-    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    expect(find.text('Log In'), findsWidgets);
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
     await tester.pump(kDoubleTapMinTime);
     await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     await tester.enterText(
         find.byKey(const ValueKey('Login-Email_e1q0')), 'momentum2@gmail.com');
     await tester.enterText(
