@@ -235,6 +235,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                           text: 'Create Account',
                                         ),
                                         Tab(
+                                          key: ValueKey('LoginTab_rr7p'),
                                           text: 'Log In',
                                         ),
                                       ],

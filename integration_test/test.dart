@@ -63,19 +63,27 @@ void main() async {
     expect(find.byKey(const ValueKey('Text_2nn9')), findsWidgets);
   });
 
-  testWidgets('Succesful Login Test', (WidgetTester tester) async {
+  testWidgets('Login Test', (WidgetTester tester) async {
     _overrideOnError();
 
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(
+      entryPage: AuthenticationWidget(),
+    ));
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle();
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
+    await tester.pump(kDoubleTapMinTime);
+    await tester.tap(find.byKey(const ValueKey('LoginTab_rr7p')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
-        find.byKey(const ValueKey('Login-Email_e1q0')), 'email@email.com');
+        find.byKey(const ValueKey('Login-Email_e1q0')), 'momentum2@email.com');
     await tester.enterText(
-        find.byKey(const ValueKey('Login-Password_ddjr')), 'password');
+        find.byKey(const ValueKey('Login-Password_ddjr')), 'momentum2');
     await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
-    await tester.pumpAndSettle();
+    await tester.pump(kDoubleTapMinTime);
+    await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
+    expect(find.byKey(const ValueKey('Text_2nn9')), findsWidgets);
   });
 
   testWidgets('Golden Path', (WidgetTester tester) async {
