@@ -684,7 +684,8 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   ((_model.weightsliderValue != null) ||
                       (_model.weightTextTextController.text != '')) &&
                   ((_model.heightsliderValue != null) ||
-                      (_model.heightTextTextController.text != '')))
+                      (_model.heightTextTextController.text != '')) &&
+                  (_model.datePicked != null))
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: FFButtonWidget(

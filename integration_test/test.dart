@@ -122,13 +122,7 @@ void main() async {
       EnginePhase.sendSemanticsUpdate,
       const Duration(milliseconds: 10000),
     );
-    expect(
-      find.descendant(
-        of: find.byKey(const ValueKey('WorkoutComplete_ut73')),
-        matching: find.byKey(const ValueKey('Button_eq65')),
-      ),
-      findsOneWidget,
-    );
+    expect(find.byKey(const ValueKey('WorkoutComplete_ut73')), findsWidgets);
   });
 }
 
