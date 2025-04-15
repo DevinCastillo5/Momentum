@@ -49,17 +49,22 @@ void main() async {
   testWidgets('Test Case US5 Profile Creation', (WidgetTester tester) async {
     _overrideOnError();
 
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(
+      entryPage: AuthenticationWidget(),
+    ));
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('TextField_6z0p')), 'autoTestUser');
-    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.tap(find.byKey(const ValueKey('bdaybutton_gvs2')));
+    await tester.pump(kDoubleTapMinTime);
     await tester.tap(find.byKey(const ValueKey('bdaybutton_gvs2')));
     await tester.tap(find.byKey(const ValueKey('button_qjy1')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 3000));
-    expect(find.text('Welcome'), findsWidgets);
+    await tester.pump(kDoubleTapMinTime);
+    await tester.tap(find.byKey(const ValueKey('button_qjy1')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    expect(find.byKey(const ValueKey('Text_2nn9')), findsWidgets);
   });
 
   testWidgets('Succesful Login Test', (WidgetTester tester) async {
