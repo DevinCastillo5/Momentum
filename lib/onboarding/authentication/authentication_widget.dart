@@ -967,6 +967,8 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                                         0.0,
                                                                         15.0),
                                                             child: Text(
+                                                              key: ValueKey(
+                                                                  'Text_i418'),
                                                               'Welcome Back!',
                                                               textAlign:
                                                                   TextAlign

@@ -126,6 +126,30 @@ void main() async {
     );
     expect(find.byKey(const ValueKey('WorkoutComplete_ut73')), findsWidgets);
   });
+
+  testWidgets('User Failed Login', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(const MyApp());
+    await GoogleFonts.pendingFonts();
+
+    await tester.tap(find.byKey(const ValueKey('authentication_gj15')));
+    await tester.pump(kDoubleTapMinTime);
+    await tester.tap(find.byKey(const ValueKey('authentication_gj15')));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 10000),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 30000),
+    );
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Email_e1q0')), 'devin@gmail.com');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.enterText(
+        find.byKey(const ValueKey('Login-Password_ddjr')), 'passsssword1');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
+    expect(find.byKey(const ValueKey('Text_i418')), findsOneWidget);
+  });
 }
 
 // There are certain types of errors that can happen during tests but
