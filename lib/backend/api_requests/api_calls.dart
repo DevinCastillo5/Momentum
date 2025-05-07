@@ -88,6 +88,76 @@ class ExcersiceCall {
           .toList();
 }
 
+class GetExerciseByNameCall {
+  static Future<ApiCallResponse> call({
+    String? name = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetExerciseByName',
+      apiUrl: 'https://exercisedb.p.rapidapi.com/exercises/name/${name}',
+      callType: ApiCallType.GET,
+      headers: {
+        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
+        'x-rapidapi-key': '3e0c5d34bbmshd2998e1fe775ac8p19a46djsnc7927f504676',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? jsonInstructions(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].instructions''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? jsonName(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? jsonGIFUrl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].gifUrl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? jsonEquipment(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[:].equipment''',
+      ));
+  static String? jsonTargetMuscles(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[:].target''',
+      ));
+  static List<String>? jsonSecondaryTargets(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].secondaryMuscles''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

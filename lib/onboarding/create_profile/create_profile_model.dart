@@ -8,6 +8,9 @@ class CreateProfileModel extends FlutterFlowModel<CreateProfileWidget> {
 
   String? currentPicture;
 
+  String defaultPFP =
+      'https://firebasestorage.googleapis.com/v0/b/momentum-84f61.firebasestorage.app/o/assets%2FdefaultAvatar.jpg?alt=media&token=a485d430-26a5-47fc-b433-75a0cbf892bf';
+
   ///  State fields for stateful widgets in this page.
 
   bool isDataUploading1 = false;

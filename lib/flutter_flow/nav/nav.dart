@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -90,33 +89,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               : AuthenticationWidget(),
         ),
         FFRoute(
-          name: HomepageWidget.routeName,
-          path: HomepageWidget.routePath,
-          builder: (context, params) => HomepageWidget(),
-        ),
-        FFRoute(
-          name: CreateProfileWidget.routeName,
-          path: CreateProfileWidget.routePath,
-          builder: (context, params) => CreateProfileWidget(),
-        ),
-        FFRoute(
-          name: ProfileWidget.routeName,
-          path: ProfileWidget.routePath,
-          builder: (context, params) => ProfileWidget(),
-        ),
-        FFRoute(
-          name: SocialWidget.routeName,
-          path: SocialWidget.routePath,
-          builder: (context, params) => SocialWidget(),
-        ),
-        FFRoute(
-          name: MyStatsWidget.routeName,
-          path: MyStatsWidget.routePath,
-          builder: (context, params) => MyStatsWidget(),
+          name: AuthenticationWidget.routeName,
+          path: AuthenticationWidget.routePath,
+          builder: (context, params) => AuthenticationWidget(),
         ),
         FFRoute(
           name: ExerciseDescriptionPageWidget.routeName,
           path: ExerciseDescriptionPageWidget.routePath,
+          asyncParams: {
+            'workoutRef': getDoc(['Workouts'], WorkoutsRecord.fromSnapshot),
+          },
           builder: (context, params) => ExerciseDescriptionPageWidget(
             exerciseIndex: params.getParam(
               'exerciseIndex',
@@ -124,54 +106,121 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             ),
             workoutRef: params.getParam(
               'workoutRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['workoutAPI'],
+              ParamType.Document,
             ),
           ),
         ),
         FFRoute(
-          name: AuthenticationWidget.routeName,
-          path: AuthenticationWidget.routePath,
-          builder: (context, params) => AuthenticationWidget(),
+          name: BadgeCollectionWidget.routeName,
+          path: BadgeCollectionWidget.routePath,
+          builder: (context, params) => BadgeCollectionWidget(),
         ),
         FFRoute(
-          name: DifficultyWidget.routeName,
-          path: DifficultyWidget.routePath,
-          builder: (context, params) => DifficultyWidget(
-            selectedWorkoutType: params.getParam(
-              'selectedWorkoutType',
-              ParamType.String,
-            ),
-            workoutRef: params.getParam(
-              'workoutRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['workoutAPI'],
-            ),
-          ),
+          name: CreateProfileWidget.routeName,
+          path: CreateProfileWidget.routePath,
+          builder: (context, params) => CreateProfileWidget(),
+        ),
+        FFRoute(
+          name: HomepageWidget.routeName,
+          path: HomepageWidget.routePath,
+          builder: (context, params) => HomepageWidget(),
         ),
         FFRoute(
           name: WorkoutWidget.routeName,
           path: WorkoutWidget.routePath,
           builder: (context, params) => WorkoutWidget(
-            selectedWorkoutType: params.getParam(
-              'selectedWorkoutType',
-              ParamType.String,
-            ),
-            selectedWorkoutDifficulty: params.getParam(
-              'selectedWorkoutDifficulty',
-              ParamType.String,
-            ),
             workoutRef: params.getParam(
               'workoutRef',
               ParamType.DocumentReference,
               isList: false,
-              collectionNamePath: ['workoutAPI'],
+              collectionNamePath: ['Workouts'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: NewstatsWidget.routeName,
+          path: NewstatsWidget.routePath,
+          builder: (context, params) => NewstatsWidget(),
+        ),
+        FFRoute(
+          name: NewPostWidget.routeName,
+          path: NewPostWidget.routePath,
+          builder: (context, params) => NewPostWidget(),
+        ),
+        FFRoute(
+          name: UsersListWidget.routeName,
+          path: UsersListWidget.routePath,
+          builder: (context, params) => UsersListWidget(),
+        ),
+        FFRoute(
+          name: MainFeedWidget.routeName,
+          path: MainFeedWidget.routePath,
+          builder: (context, params) => MainFeedWidget(),
+        ),
+        FFRoute(
+          name: OtherssociallProfileWidget.routeName,
+          path: OtherssociallProfileWidget.routePath,
+          asyncParams: {
+            'userDetails': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => OtherssociallProfileWidget(
+            userDetails: params.getParam(
+              'userDetails',
+              ParamType.Document,
+            ),
+            showPage: params.getParam(
+              'showPage',
+              ParamType.bool,
+            ),
+            pageTitle: params.getParam(
+              'pageTitle',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: MysociallProfileWidget.routeName,
+          path: MysociallProfileWidget.routePath,
+          builder: (context, params) => MysociallProfileWidget(),
+        ),
+        FFRoute(
+          name: MyPostDetailsWidget.routeName,
+          path: MyPostDetailsWidget.routePath,
+          asyncParams: {
+            'userDetails': getDoc(['users'], UsersRecord.fromSnapshot),
+            'postDetails': getDoc(['userPosts'], UserPostsRecord.fromSnapshot),
+          },
+          builder: (context, params) => MyPostDetailsWidget(
+            userDetails: params.getParam(
+              'userDetails',
+              ParamType.Document,
+            ),
+            postDetails: params.getParam(
+              'postDetails',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: OtherPostDetailsWidget.routeName,
+          path: OtherPostDetailsWidget.routePath,
+          asyncParams: {
+            'userDetails': getDoc(['users'], UsersRecord.fromSnapshot),
+            'postDetails': getDoc(['userPosts'], UserPostsRecord.fromSnapshot),
+          },
+          builder: (context, params) => OtherPostDetailsWidget(
+            userDetails: params.getParam(
+              'userDetails',
+              ParamType.Document,
+            ),
+            postDetails: params.getParam(
+              'postDetails',
+              ParamType.Document,
             ),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {

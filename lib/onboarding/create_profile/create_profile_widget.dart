@@ -9,6 +9,7 @@ import '/flutter_flow/upload_data.dart';
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'create_profile_model.dart';
 export 'create_profile_model.dart';
 
@@ -75,8 +76,20 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   key: ValueKey('Text_q8q8'),
                   'Create Profile',
                   style: FlutterFlowTheme.of(context).displayLarge.override(
-                        fontFamily: 'Josefin Sans',
+                        font: GoogleFonts.josefinSans(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .displayLarge
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .displayLarge
+                              .fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .displayLarge
+                            .fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).displayLarge.fontStyle,
                       ),
                 ),
               ),
@@ -280,16 +293,42 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                     isDense: true,
                     labelStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
                             ),
                     hintText: 'Username...',
                     hintStyle:
                         FlutterFlowTheme.of(context).headlineMedium.override(
-                              fontFamily: 'Josefin Sans',
+                              font: GoogleFonts.josefinSans(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .fontStyle,
                             ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -335,9 +374,18 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         : null,
                   ),
                   style: FlutterFlowTheme.of(context).bodySmall.override(
-                        fontFamily: 'Work Sans',
+                        font: GoogleFonts.workSans(
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                        ),
                         fontSize: 18.0,
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodySmall.fontStyle,
                       ),
                   keyboardType: TextInputType.name,
                   cursorColor: FlutterFlowTheme.of(context).primaryText,
@@ -364,10 +412,18 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                             FlutterFlowTheme.of(context).info,
                         headerTextStyle:
                             FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: 'Inter Tight',
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineLarge
+                                        .fontStyle,
+                                  ),
                                   fontSize: 32.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .fontStyle,
                                 ),
                         pickerBackgroundColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
@@ -412,10 +468,23 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   color: FlutterFlowTheme.of(context).secondary,
                   textStyle:
                       FlutterFlowTheme.of(context).headlineMedium.override(
-                            fontFamily: 'Josefin Sans',
+                            font: GoogleFonts.josefinSans(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .fontStyle,
+                            ),
                             color: FlutterFlowTheme.of(context).primaryText,
                             fontSize: 18.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .fontStyle,
                           ),
                   elevation: 0.0,
                   borderSide: BorderSide(
@@ -433,15 +502,37 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   Text(
                     'Weight (lbs)',
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                   ),
                   Text(
                     'Height (cm)',
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                   ),
                 ],
@@ -494,18 +585,52 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
                                         ),
                                     hintText: 'Weight...',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
-                                          fontFamily: 'Josefin Sans',
+                                          font: GoogleFonts.josefinSans(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .fontStyle,
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -545,9 +670,24 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
-                                        fontFamily: 'Work Sans',
+                                        font: GoogleFonts.workSans(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .fontStyle,
                                       ),
                                   keyboardType: TextInputType.number,
                                   cursorColor:
@@ -605,18 +745,52 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            font: GoogleFonts.inter(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
+                                            ),
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .fontStyle,
                                           ),
                                       hintText: 'Height...',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
-                                            fontFamily: 'Josefin Sans',
+                                            font: GoogleFonts.josefinSans(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .fontStyle,
+                                            ),
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMedium
+                                                    .fontStyle,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -660,9 +834,26 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Work Sans',
+                                          font: GoogleFonts.workSans(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .fontStyle,
                                         ),
                                     keyboardType: TextInputType.number,
                                     cursorColor: FlutterFlowTheme.of(context)
@@ -688,70 +879,134 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                   (_model.datePicked != null))
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                  child: FFButtonWidget(
-                    key: ValueKey('button_qjy1'),
-                    onPressed: () async {
-                      logFirebaseEvent('CREATE_PROFILE_PAGE_button_ON_TAP');
-                      logFirebaseEvent('button_backend_call');
-
-                      await currentUserReference!.update(createUsersRecordData(
-                        displayName: _model.textController1.text,
-                        birthday: _model.datePicked,
-                      ));
-                      if (getRemoteConfigString('input_method') == 'slider') {
-                        logFirebaseEvent('button_backend_call');
-
-                        await currentUserReference!
-                            .update(createUsersRecordData(
-                          height: _model.heightsliderValue,
-                          weight: _model.weightsliderValue,
-                        ));
-                      } else {
-                        logFirebaseEvent('button_backend_call');
-
-                        await currentUserReference!
-                            .update(createUsersRecordData(
-                          height: double.tryParse(
-                              _model.heightTextTextController.text),
-                          weight: double.tryParse(
-                              _model.weightTextTextController.text),
-                        ));
+                  child: StreamBuilder<List<UsersRecord>>(
+                    stream: queryUsersRecord(
+                      queryBuilder: (usersRecord) => usersRecord.where(
+                        'display_name',
+                        isEqualTo: _model.textController1.text,
+                      ),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
+                            ),
+                          ),
+                        );
                       }
+                      List<UsersRecord> buttonUsersRecordList = snapshot.data!;
 
-                      logFirebaseEvent('button_google_analytics_event');
-                      logFirebaseEvent(
-                        'userAdoption',
-                        parameters: {
-                          'adoptionParam': 'new user adoption',
+                      return FFButtonWidget(
+                        key: ValueKey('button_qjy1'),
+                        onPressed: () async {
+                          logFirebaseEvent('CREATE_PROFILE_PAGE_button_ON_TAP');
+                          if (buttonUsersRecordList.length > 0) {
+                            logFirebaseEvent('button_show_snack_bar');
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Username Taken!',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
+                            return;
+                          } else {
+                            logFirebaseEvent('button_backend_call');
+
+                            await currentUserReference!
+                                .update(createUsersRecordData(
+                              displayName: _model.textController1.text,
+                              birthday: _model.datePicked,
+                              photoUrl: currentUserPhoto == ''
+                                  ? _model.defaultPFP
+                                  : _model.currentPicture,
+                            ));
+                            if (getRemoteConfigString('input_method') ==
+                                'slider') {
+                              logFirebaseEvent('button_backend_call');
+
+                              await currentUserReference!
+                                  .update(createUsersRecordData(
+                                height: _model.heightsliderValue,
+                                weight: _model.weightsliderValue,
+                              ));
+                            } else {
+                              logFirebaseEvent('button_backend_call');
+
+                              await currentUserReference!
+                                  .update(createUsersRecordData(
+                                height: double.tryParse(
+                                    _model.heightTextTextController.text),
+                                weight: double.tryParse(
+                                    _model.weightTextTextController.text),
+                              ));
+                            }
+
+                            logFirebaseEvent('button_google_analytics_event');
+                            logFirebaseEvent(
+                              'userAdoption',
+                              parameters: {
+                                'adoptionParam': 'new user adoption',
+                              },
+                            );
+                            logFirebaseEvent('button_navigate_to');
+
+                            context.pushNamed(HomepageWidget.routeName);
+                          }
                         },
-                      );
-                      logFirebaseEvent('button_navigate_to');
-
-                      context.pushNamed(HomepageWidget.routeName);
-                    },
-                    text: 'Continue',
-                    options: FFButtonOptions(
-                      width: 248.0,
-                      height: 77.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Josefin Sans',
+                        text: 'Continue',
+                        options: FFButtonOptions(
+                          width: 248.0,
+                          height: 77.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                font: GoogleFonts.josefinSans(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .fontStyle,
+                                ),
                                 color: FlutterFlowTheme.of(context).alternate,
                                 fontSize: 32.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .fontStyle,
                               ),
-                      elevation: 0.0,
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(24.0),
-                    ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                      );
+                    },
                   ),
                 ),
             ].divide(SizedBox(height: 25.0)),

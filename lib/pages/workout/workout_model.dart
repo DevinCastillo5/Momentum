@@ -1,4 +1,3 @@
-import '/components/workout_complete/workout_complete_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'workout_widget.dart' show WorkoutWidget;
@@ -13,18 +12,9 @@ class WorkoutModel extends FlutterFlowModel<WorkoutWidget> {
 
   String? formattedDuration;
 
-  ///  State fields for stateful widgets in this page.
-
-  // Model for WorkoutComplete component.
-  late WorkoutCompleteModel workoutCompleteModel;
+  @override
+  void initState(BuildContext context) {}
 
   @override
-  void initState(BuildContext context) {
-    workoutCompleteModel = createModel(context, () => WorkoutCompleteModel());
-  }
-
-  @override
-  void dispose() {
-    workoutCompleteModel.dispose();
-  }
+  void dispose() {}
 }

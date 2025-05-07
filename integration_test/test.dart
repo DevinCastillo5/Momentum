@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:momentum_n_e_w/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:momentum_n_e_w/flutter_flow/flutter_flow_widgets.dart';
-import 'package:momentum_n_e_w/flutter_flow/flutter_flow_theme.dart';
-import 'package:momentum_n_e_w/index.dart';
-import 'package:momentum_n_e_w/main.dart';
-import 'package:momentum_n_e_w/flutter_flow/flutter_flow_util.dart';
+import 'package:momentum_backup3/flutter_flow/flutter_flow_drop_down.dart';
+import 'package:momentum_backup3/flutter_flow/flutter_flow_icon_button.dart';
+import 'package:momentum_backup3/flutter_flow/flutter_flow_widgets.dart';
+import 'package:momentum_backup3/flutter_flow/flutter_flow_theme.dart';
+import 'package:momentum_backup3/index.dart';
+import 'package:momentum_backup3/main.dart';
+import 'package:momentum_backup3/flutter_flow/flutter_flow_util.dart';
 
-import 'package:momentum_n_e_w/backend/firebase/firebase_config.dart';
-import 'package:momentum_n_e_w/auth/firebase_auth/auth_util.dart';
+import 'package:momentum_backup3/backend/firebase/firebase_config.dart';
+import 'package:momentum_backup3/auth/firebase_auth/auth_util.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
@@ -86,45 +87,6 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('Button_gaeo')));
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     expect(find.text('Welcome'), findsWidgets);
-  });
-
-  testWidgets('Golden Path', (WidgetTester tester) async {
-    _overrideOnError();
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'devin@gmail.com', password: 'Password1');
-    await tester.pumpWidget(MyApp(
-      entryPage: HomepageWidget(),
-    ));
-    await GoogleFonts.pendingFonts();
-
-    await tester.tap(find.byKey(const ValueKey('Container_1h6h')));
-    await tester.pumpAndSettle(
-      const Duration(milliseconds: 5000),
-      EnginePhase.sendSemanticsUpdate,
-      const Duration(milliseconds: 10000),
-    );
-    await tester.tap(find.byKey(const ValueKey('Container_cut4')));
-    await tester.pumpAndSettle(
-      const Duration(milliseconds: 5000),
-      EnginePhase.sendSemanticsUpdate,
-      const Duration(milliseconds: 10000),
-    );
-    await tester.tap(find.descendant(
-      of: find.byKey(const ValueKey('WorkoutPreview_9yyx')),
-      matching: find.byKey(const ValueKey('Button_7lj5')),
-    ));
-    await tester.pumpAndSettle(
-      const Duration(milliseconds: 5000),
-      EnginePhase.sendSemanticsUpdate,
-      const Duration(milliseconds: 10000),
-    );
-    await tester.tap(find.byKey(const ValueKey('Button_c2tj')));
-    await tester.pumpAndSettle(
-      const Duration(milliseconds: 5000),
-      EnginePhase.sendSemanticsUpdate,
-      const Duration(milliseconds: 10000),
-    );
-    expect(find.byKey(const ValueKey('WorkoutComplete_ut73')), findsWidgets);
   });
 
   testWidgets('User Failed Login', (WidgetTester tester) async {

@@ -1,8 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'navigating_model.dart';
 export 'navigating_model.dart';
 
@@ -57,7 +59,7 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
         ],
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+        padding: EdgeInsetsDirectional.fromSTEB(12.0, 6.0, 12.0, 11.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -99,8 +101,19 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
                   Text(
                     'Home',
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                   ),
                 ],
@@ -118,22 +131,32 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
                   buttonSize: 40.0,
                   fillColor: FlutterFlowTheme.of(context).tertiary,
                   icon: Icon(
-                    Icons.search,
+                    Icons.stacked_bar_chart_outlined,
                     color: FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),
                   onPressed: () async {
-                    logFirebaseEvent('NAVIGATING_COMP_search_ICN_ON_TAP');
+                    logFirebaseEvent(
+                        'NAVIGATING_stacked_bar_chart_outlined_IC');
                     logFirebaseEvent('IconButton_navigate_to');
 
-                    context.pushNamed(MyStatsWidget.routeName);
+                    context.pushNamed(NewstatsWidget.routeName);
                   },
                 ),
                 Text(
-                  'Activity',
+                  'MyStats',
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Inter',
+                        font: GoogleFonts.inter(
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
                         letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                       ),
                 ),
               ],
@@ -147,7 +170,7 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
                 logFirebaseEvent('NAVIGATING_COMP_Column_20p58kfp_ON_TAP');
                 logFirebaseEvent('Column_navigate_to');
 
-                context.pushNamed(SocialWidget.routeName);
+                context.pushNamed(MainFeedWidget.routeName);
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -161,19 +184,33 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
                     buttonSize: 40.0,
                     fillColor: FlutterFlowTheme.of(context).tertiary,
                     icon: Icon(
-                      Icons.emoji_people_rounded,
+                      Icons.people_alt,
                       color: FlutterFlowTheme.of(context).secondaryText,
                       size: 24.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      logFirebaseEvent('NAVIGATING_COMP_people_alt_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_navigate_to');
+
+                      context.pushNamed(MainFeedWidget.routeName);
                     },
                   ),
                   Text(
                     'Community',
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                   ),
                 ],
@@ -188,7 +225,7 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
                 logFirebaseEvent('NAVIGATING_COMP_Column_46yqlvs2_ON_TAP');
                 logFirebaseEvent('Column_navigate_to');
 
-                context.pushNamed(ProfileWidget.routeName);
+                context.pushNamed(NewstatsWidget.routeName);
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -202,22 +239,37 @@ class _NavigatingWidgetState extends State<NavigatingWidget> {
                     buttonSize: 40.0,
                     fillColor: FlutterFlowTheme.of(context).tertiary,
                     icon: Icon(
-                      Icons.person_outline,
+                      Icons.logout_rounded,
                       color: FlutterFlowTheme.of(context).secondaryText,
                       size: 24.0,
                     ),
                     onPressed: () async {
-                      logFirebaseEvent('NAVIGATING_person_outline_ICN_ON_TAP');
-                      logFirebaseEvent('IconButton_navigate_to');
+                      logFirebaseEvent('NAVIGATING_logout_rounded_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_auth');
+                      GoRouter.of(context).prepareAuthEvent();
+                      await authManager.signOut();
+                      GoRouter.of(context).clearRedirectLocation();
 
-                      context.pushNamed(ProfileWidget.routeName);
+                      context.goNamedAuth(
+                          AuthenticationWidget.routeName, context.mounted);
                     },
                   ),
                   Text(
-                    'Profile',
+                    'Log Out',
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                   ),
                 ],

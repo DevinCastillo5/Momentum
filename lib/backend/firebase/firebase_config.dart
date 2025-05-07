@@ -5,13 +5,12 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyDwCTGjTc0C3kHqzcbw4AaVziysg2wvBlc",
-            authDomain: "momentum-84f61.firebaseapp.com",
-            projectId: "momentum-84f61",
-            storageBucket: "momentum-84f61.firebasestorage.app",
-            messagingSenderId: "304484131141",
-            appId: "1:304484131141:web:280995197795da2bafde2c",
-            measurementId: "G-CT8KYYV0MY"));
+            apiKey: "AIzaSyCppKi2uAFWp7EKGzSIAZi4Ges956s1Saw",
+            authDomain: "momentumdev-203a6.firebaseapp.com",
+            projectId: "momentumdev-203a6",
+            storageBucket: "momentumdev-203a6.firebasestorage.app",
+            messagingSenderId: "635856928797",
+            appId: "1:635856928797:web:f43ce0383b6c66cb1886f4"));
   } else {
     await Firebase.initializeApp();
   }

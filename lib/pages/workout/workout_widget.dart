@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/ai_helper_widget.dart';
 import '/components/workout_complete/workout_complete_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,22 +8,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'workout_model.dart';
 export 'workout_model.dart';
 
 class WorkoutWidget extends StatefulWidget {
   const WorkoutWidget({
     super.key,
-    required this.selectedWorkoutType,
-    required this.selectedWorkoutDifficulty,
     required this.workoutRef,
   });
 
-  final String? selectedWorkoutType;
-  final String? selectedWorkoutDifficulty;
   final DocumentReference? workoutRef;
 
   static String routeName = 'Workout';
@@ -94,8 +93,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<WorkoutAPIRecord>(
-      stream: WorkoutAPIRecord.getDocument(widget.workoutRef!),
+    return StreamBuilder<WorkoutsRecord>(
+      stream: WorkoutsRecord.getDocument(widget.workoutRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -115,7 +114,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
           );
         }
 
-        final workoutWorkoutAPIRecord = snapshot.data!;
+        final workoutWorkoutsRecord = snapshot.data!;
 
         return GestureDetector(
           onTap: () {
@@ -135,10 +134,12 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -160,39 +161,192 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
                                               children: [
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    widget.selectedWorkoutType,
-                                                    'Workout Type',
-                                                  ),
+                                                AutoSizeText(
+                                                  workoutWorkoutsRecord.name,
                                                   textAlign: TextAlign.center,
+                                                  maxLines: 1,
+                                                  minFontSize: 20.0,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .displayLarge
+                                                      .displayMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Josefin Sans',
-                                                        fontSize: 45.0,
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displayMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .displayMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        fontSize: 40.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displayMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displayMedium
+                                                                .fontStyle,
                                                         lineHeight: 1.5,
                                                       ),
                                                 ),
                                                 Text(
-                                                  valueOrDefault<String>(
-                                                    widget
-                                                        .selectedWorkoutDifficulty,
-                                                    'difficulty',
-                                                  ),
+                                                  workoutWorkoutsRecord
+                                                      .difficulty,
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .headlineLarge
+                                                      .titleLarge
                                                       .override(
-                                                        fontFamily:
-                                                            'Inter Tight',
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLarge
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge
+                                                                .fontStyle,
                                                         lineHeight: 1.5,
                                                       ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'WORKOUT_PAGE_Container_qkkknidc_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Container_bottom_sheet');
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  AiHelperWidget(),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Container(
+                                                      width: 150.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFFF8E4C9),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 4.0,
+                                                            color: Color(
+                                                                0x33000000),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              2.0,
+                                                            ),
+                                                            spreadRadius: 3.0,
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(24.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Text(
+                                                          'Tap on me for Help!',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -207,188 +361,232 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                         20.0, 20.0, 20.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          1.0,
+                                          2.0,
+                                      height: 5.0,
                                       decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 4.0,
-                                            color: Color(0x33000000),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                          )
-                                        ],
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
                                         borderRadius:
                                             BorderRadius.circular(30.0),
                                       ),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 411.1,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          borderRadius:
-                                              BorderRadius.circular(30.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 10.0),
-                                          child: SingleChildScrollView(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Builder(
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 20.0, 10.0, 0.0),
+                                            child:
+                                                StreamBuilder<WorkoutsRecord>(
+                                              stream:
+                                                  WorkoutsRecord.getDocument(
+                                                      widget.workoutRef!),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+
+                                                final listViewWorkoutsRecord =
+                                                    snapshot.data!;
+
+                                                return Builder(
                                                   builder: (context) {
                                                     final exerciseList =
-                                                        workoutWorkoutAPIRecord
-                                                            .exerciseList
+                                                        listViewWorkoutsRecord
+                                                            .exercises
                                                             .toList();
 
-                                                    return ListView.builder(
+                                                    return ListView.separated(
                                                       padding: EdgeInsets.zero,
                                                       shrinkWrap: true,
                                                       scrollDirection:
                                                           Axis.vertical,
                                                       itemCount:
                                                           exerciseList.length,
+                                                      separatorBuilder:
+                                                          (_, __) => SizedBox(
+                                                              height: 15.0),
                                                       itemBuilder: (context,
                                                           exerciseListIndex) {
                                                         final exerciseListItem =
                                                             exerciseList[
                                                                 exerciseListIndex];
-                                                        return Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      15.0,
-                                                                      10.0,
-                                                                      0.0),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              logFirebaseEvent(
-                                                                  'WORKOUT_PAGE_Container_ijvq3jc7_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Container_navigate_to');
-
-                                                              context.pushNamed(
-                                                                ExerciseDescriptionPageWidget
-                                                                    .routeName,
-                                                                queryParameters:
-                                                                    {
-                                                                  'exerciseIndex':
-                                                                      serializeParam(
-                                                                    exerciseListIndex,
-                                                                    ParamType
-                                                                        .int,
+                                                        return StreamBuilder<
+                                                            WorkoutsRecord>(
+                                                          stream: WorkoutsRecord
+                                                              .getDocument(
+                                                                  listViewWorkoutsRecord
+                                                                      .reference),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 50.0,
+                                                                  height: 50.0,
+                                                                  child:
+                                                                      CircularProgressIndicator(
+                                                                    valueColor:
+                                                                        AlwaysStoppedAnimation<
+                                                                            Color>(
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
                                                                   ),
-                                                                  'workoutRef':
-                                                                      serializeParam(
-                                                                    widget
-                                                                        .workoutRef,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                }.withoutNulls,
+                                                                ),
                                                               );
-                                                            },
-                                                            child: Container(
-                                                              width: 100.0,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            24.0),
-                                                              ),
-                                                              child: Stack(
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Padding(
+                                                            }
+
+                                                            final containerWorkoutsRecord =
+                                                                snapshot.data!;
+
+                                                            return InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                logFirebaseEvent(
+                                                                    'WORKOUT_PAGE_Container_wcxk9vrp_ON_TAP');
+                                                                logFirebaseEvent(
+                                                                    'Container_navigate_to');
+
+                                                                context
+                                                                    .pushNamed(
+                                                                  ExerciseDescriptionPageWidget
+                                                                      .routeName,
+                                                                  queryParameters:
+                                                                      {
+                                                                    'exerciseIndex':
+                                                                        serializeParam(
+                                                                      exerciseListIndex,
+                                                                      ParamType
+                                                                          .int,
+                                                                    ),
+                                                                    'workoutRef':
+                                                                        serializeParam(
+                                                                      containerWorkoutsRecord,
+                                                                      ParamType
+                                                                          .Document,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    'workoutRef':
+                                                                        containerWorkoutsRecord,
+                                                                  },
+                                                                );
+                                                              },
+                                                              child: Container(
+                                                                width: 100.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          4.0,
+                                                                      color: Color(
+                                                                          0x33000000),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
+                                                                      spreadRadius:
+                                                                          3.0,
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              24.0),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                  ),
+                                                                ),
+                                                                child: Stack(
+                                                                  children: [
+                                                                    Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          15.0,
+                                                                          8.0,
                                                                           0.0,
-                                                                          0.0,
-                                                                          10.0,
                                                                           0.0),
                                                                       child:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .chevron_right_rounded,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                        size:
-                                                                            40.0,
+                                                                          AutoSizeText(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          functions.formatExerciseName(containerWorkoutsRecord
+                                                                              .exercises
+                                                                              .elementAtOrNull(exerciseListIndex)),
+                                                                          'exName',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .headlineSmall
+                                                                            .override(
+                                                                              font: GoogleFonts.josefinSans(
+                                                                                fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                              ),
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                                                                              fontStyle: FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                                                                            ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            15.0,
-                                                                            13.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        exerciseListItem
-                                                                            .name,
-                                                                        'exName',
-                                                                      ),
-                                                                      maxLines:
-                                                                          4,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .headlineSmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Josefin Sans',
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                                  ],
+                                                                ),
                                                               ),
-                                                            ),
-                                                          ),
+                                                            );
+                                                          },
                                                         );
                                                       },
                                                     );
                                                   },
-                                                ),
-                                              ],
+                                                );
+                                              },
                                             ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation']!),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(),
+                                    ),
                                   ),
                                   InkWell(
                                     splashColor: Colors.transparent,
@@ -416,102 +614,163 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                                         Align(
                                           alignment:
                                               AlignmentDirectional(-0.01, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 35.0, 0.0, 0.0),
-                                            child: FFButtonWidget(
-                                              key: ValueKey('Button_c2tj'),
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'WORKOUT_PAGE_FINISH_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_backend_call');
+                                          child: Builder(
+                                            builder: (context) => Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 35.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'WORKOUT_PAGE_finishButton_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'finishButton_backend_call');
 
-                                                await currentUserReference!
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'workout_streaks':
-                                                          FieldValue.increment(
-                                                              1),
-                                                      'totalWorkouts':
-                                                          FieldValue.increment(
-                                                              1),
-                                                    },
-                                                  ),
-                                                });
-                                                logFirebaseEvent(
-                                                    'Button_update_page_state');
-                                                _model.endTime =
-                                                    getCurrentTimestamp;
-                                                safeSetState(() {});
-                                                logFirebaseEvent(
-                                                    'Button_update_page_state');
-                                                _model.formattedDuration =
-                                                    functions
-                                                        .formatWorkoutDuration(
-                                                            _model.startTime,
-                                                            _model.endTime);
-                                                safeSetState(() {});
-                                                logFirebaseEvent(
-                                                    'Button_google_analytics_event');
-                                                logFirebaseEvent(
-                                                  'workoutCompleted',
-                                                  parameters: {
-                                                    'workout_count': '1',
-                                                    'week': functions
-                                                        .calculateWeek(),
-                                                    'user_id': currentUserUid,
-                                                    'average_workout': functions
-                                                        .calculateAverageWorkout(),
-                                                  },
-                                                );
-                                                logFirebaseEvent(
-                                                    'Button_google_analytics_event');
-                                                logFirebaseEvent(
-                                                  'userRetention',
-                                                  parameters: {
-                                                    'retentionParam':
-                                                        'user retention',
-                                                  },
-                                                );
-                                              },
-                                              text: 'Finish',
-                                              options: FFButtonOptions(
-                                                width: 250.0,
-                                                height: 100.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Josefin Sans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
+                                                  await currentUserReference!
+                                                      .update({
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'workout_streaks':
+                                                            FieldValue
+                                                                .increment(1),
+                                                        'totalWorkouts':
+                                                            FieldValue
+                                                                .increment(1),
+                                                      },
+                                                    ),
+                                                  });
+                                                  logFirebaseEvent(
+                                                      'finishButton_update_page_state');
+                                                  _model.endTime =
+                                                      getCurrentTimestamp;
+                                                  safeSetState(() {});
+                                                  logFirebaseEvent(
+                                                      'finishButton_update_page_state');
+                                                  _model.formattedDuration =
+                                                      functions
+                                                          .formatWorkoutDuration(
+                                                              _model.startTime,
+                                                              _model.endTime);
+                                                  safeSetState(() {});
+                                                  logFirebaseEvent(
+                                                      'finishButton_alert_dialog');
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child: GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    dialogContext)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child:
+                                                              WorkoutCompleteWidget(
+                                                            workout:
+                                                                workoutWorkoutsRecord,
+                                                          ),
                                                         ),
-                                                elevation: 0.0,
-                                                borderSide: BorderSide(
+                                                      );
+                                                    },
+                                                  );
+
+                                                  logFirebaseEvent(
+                                                      'finishButton_google_analytics_event');
+                                                  logFirebaseEvent(
+                                                    'workoutCompleted',
+                                                    parameters: {
+                                                      'workout_count': '1',
+                                                      'week': functions
+                                                          .calculateWeek(),
+                                                      'user_id': currentUserUid,
+                                                      'average_workout': functions
+                                                          .calculateAverageWorkout(),
+                                                    },
+                                                  );
+                                                  logFirebaseEvent(
+                                                      'finishButton_google_analytics_event');
+                                                  logFirebaseEvent(
+                                                    'userRetention',
+                                                    parameters: {
+                                                      'retentionParam':
+                                                          'user retention',
+                                                    },
+                                                  );
+                                                },
+                                                text: 'Finish',
+                                                options: FFButtonOptions(
+                                                  width: 200.0,
+                                                  height: 70.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryBackground,
-                                                  width: 2.0,
+                                                      .primary,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        font: GoogleFonts
+                                                            .josefinSans(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineMedium
+                                                                .fontStyle,
+                                                      ),
+                                                  elevation: 0.0,
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
                                               ),
                                             ),
                                           ),
@@ -539,19 +798,7 @@ class _WorkoutWidgetState extends State<WorkoutWidget>
                     ],
                   ),
                   Stack(
-                    children: [
-                      if (_model.endTime != null)
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: wrapWithModel(
-                            model: _model.workoutCompleteModel,
-                            updateCallback: () => safeSetState(() {}),
-                            child: WorkoutCompleteWidget(
-                              key: ValueKey('WorkoutComplete_ut73'),
-                            ),
-                          ),
-                        ),
-                    ],
+                    children: [],
                   ),
                 ],
               ),

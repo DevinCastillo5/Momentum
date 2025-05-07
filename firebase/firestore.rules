@@ -8,6 +8,13 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    match /badges/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
     match /Workouts/{document} {
       allow create: if true;
       allow read: if true;
@@ -22,11 +29,37 @@ service cloud.firestore {
       allow delete: if request.auth.uid == document;
     }
 
-    match /workoutAPI/{document} {
+    match /postComments/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if true;
-      allow delete: if true;
+      allow write: if false;
+      allow delete: if false;
     }
+
+    match /friends/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /userPosts/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /userPosts/{parent}/comments/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /{path=**}/comments/{document} {
+      allow read: if true;
+    }
+
   }
 }

@@ -80,6 +80,16 @@ class UsersRecord extends FirestoreRecord {
   bool get hasSeenNPS => _hasSeenNPS ?? false;
   bool hasHasSeenNPS() => _hasSeenNPS != null;
 
+  // "xpPoints" field.
+  int? _xpPoints;
+  int get xpPoints => _xpPoints ?? 0;
+  bool hasXpPoints() => _xpPoints != null;
+
+  // "level" field.
+  int? _level;
+  int get level => _level ?? 0;
+  bool hasLevel() => _level != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -94,6 +104,8 @@ class UsersRecord extends FirestoreRecord {
     _totalWorkouts = castToType<int>(snapshotData['totalWorkouts']);
     _userRating = castToType<double>(snapshotData['userRating']);
     _hasSeenNPS = snapshotData['hasSeenNPS'] as bool?;
+    _xpPoints = castToType<int>(snapshotData['xpPoints']);
+    _level = castToType<int>(snapshotData['level']);
   }
 
   static CollectionReference get collection =>
@@ -143,6 +155,8 @@ Map<String, dynamic> createUsersRecordData({
   int? totalWorkouts,
   double? userRating,
   bool? hasSeenNPS,
+  int? xpPoints,
+  int? level,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -159,6 +173,8 @@ Map<String, dynamic> createUsersRecordData({
       'totalWorkouts': totalWorkouts,
       'userRating': userRating,
       'hasSeenNPS': hasSeenNPS,
+      'xpPoints': xpPoints,
+      'level': level,
     }.withoutNulls,
   );
 
@@ -182,7 +198,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.workoutStreaks == e2?.workoutStreaks &&
         e1?.totalWorkouts == e2?.totalWorkouts &&
         e1?.userRating == e2?.userRating &&
-        e1?.hasSeenNPS == e2?.hasSeenNPS;
+        e1?.hasSeenNPS == e2?.hasSeenNPS &&
+        e1?.xpPoints == e2?.xpPoints &&
+        e1?.level == e2?.level;
   }
 
   @override
@@ -199,7 +217,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.workoutStreaks,
         e?.totalWorkouts,
         e?.userRating,
-        e?.hasSeenNPS
+        e?.hasSeenNPS,
+        e?.xpPoints,
+        e?.level
       ]);
 
   @override
