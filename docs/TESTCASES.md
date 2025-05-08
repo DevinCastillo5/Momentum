@@ -21,3 +21,7 @@ https://docs.google.com/presentation/d/1wu5SLCQNtwDccU-NfsB_ZbrFpwDcuGgMk8AODP4M
   https://docs.google.com/presentation/d/1Gllv4QzDb21pvOwHGrJNUEo3706yy36bc53q99KrUBU/edit?usp=sharing US6: Workout Filtering Feature
  </ab>
 
+<ab>
+
+  https://docs.google.com/presentation/d/1X_vIeipmETpCEDRfEqDygI7pNid0QWluLPUHsoS0D2g/edit?usp=sharing US9: Gamification
+ </ab>
