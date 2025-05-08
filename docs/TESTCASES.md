@@ -18,8 +18,10 @@ https://docs.google.com/presentation/d/1wu5SLCQNtwDccU-NfsB_ZbrFpwDcuGgMk8AODP4M
 
 <ab>
 
-  https://docs.google.com/presentation/d/1Gllv4QzDb21pvOwHGrJNUEo3706yy36bc53q99KrUBU/edit?usp=sharing US6: Workout Filtering Feature
- </ab>
+https://docs.google.com/presentation/d/1Gllv4QzDb21pvOwHGrJNUEo3706yy36bc53q99KrUBU/edit?usp=sharing US6: Workout Filtering Feature
+ 
+ 
+</ab>
 https://docs.google.com/presentation/d/12txdTiRkK4Svz7ZNXlWfMNIK8b3vlOwKo0vfqxbXfkA/edit?usp=sharing US8:View Exercise Media & Receive AI Help
 <ab>
 
