@@ -19,6 +19,9 @@ https://docs.google.com/presentation/d/1wu5SLCQNtwDccU-NfsB_ZbrFpwDcuGgMk8AODP4M
 <ab>
 
 https://docs.google.com/presentation/d/1Gllv4QzDb21pvOwHGrJNUEo3706yy36bc53q99KrUBU/edit?usp=sharing US6: Workout Filtering Feature
+
+<ab> 
+https://docs.google.com/presentation/d/1CZEvKx91DHyUN-zvu_Hax8h0K6aXYQ5TLltFYMFs5q0/edit?usp=sharing US7: Viewing Posts
  
  
 </ab>
