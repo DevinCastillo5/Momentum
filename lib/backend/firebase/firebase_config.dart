@@ -10,7 +10,8 @@ Future initFirebase() async {
             projectId: "momentumdev-203a6",
             storageBucket: "momentumdev-203a6.firebasestorage.app",
             messagingSenderId: "635856928797",
-            appId: "1:635856928797:web:f43ce0383b6c66cb1886f4"));
+            appId: "1:635856928797:web:f43ce0383b6c66cb1886f4",
+            measurementId: "G-T75QN9N1Z3"));
   } else {
     await Firebase.initializeApp();
   }
